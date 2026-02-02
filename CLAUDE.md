@@ -30,6 +30,7 @@ Hemsida för Managementprogrammet. Tillfälligt projekt under utveckling.
 ```
 managementprogrammet/
 ├── docker-compose.yml    # Docker-konfiguration
+├── deploy.sh             # Auto-deploy script (cron)
 ├── public/
 │   └── index.html        # Hemsidan
 └── CLAUDE.md             # Detta dokument
@@ -64,21 +65,32 @@ git pull origin main
 
 ## Deployment
 
-Hemsidan serveras direkt från `public/`-mappen. För att uppdatera:
+**Automatisk deploy är aktiverad!**
 
-1. Redigera filer i `public/`
-2. Ändringar syns direkt (volymen är monterad)
+När någon pushar till GitHub körs `git pull` automatiskt på servern (varje minut via cron).
 
-Eller via GitHub:
-1. Pusha ändringar till GitHub
-2. På servern: `git pull origin main`
+### Manuellt (vid behov)
+```bash
+cd /home/albin/managementprogrammet
+git pull origin main
+```
+
+### Kolla deploy-logg
+```bash
+cat /home/albin/managementprogrammet/deploy.log
+```
+
+### Cron-jobb
+```
+* * * * * /home/albin/managementprogrammet/deploy.sh
+```
 
 ---
 
 ## Collaborators
 
-GitHub-repot ska delas med:
-- [ ] Jonas (användarnamn: TBD)
+GitHub-repot delas med:
+- [x] Jonas (@carma1337) - inbjuden
 
 ---
 
@@ -92,7 +104,7 @@ GitHub-repot ska delas med:
 
 ## TODO
 
-- [ ] Lägg till Jonas som collaborator på GitHub
+- [x] Lägg till Jonas som collaborator på GitHub
 - [ ] Jonas bygger hemsidan i Lovable
 - [ ] Deploya färdig hemsida
 
