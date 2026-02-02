@@ -1,5 +1,14 @@
 # Managementprogrammet - Teknisk Dokumentation
 
+## PÅMINNELSE TILL ALBIN
+
+När carma1337 har pushat ändringar från Lovable, kör detta på servern:
+```bash
+cd /home/albin/managementprogrammet && git pull origin main
+```
+
+---
+
 ## Projektöversikt
 
 Hemsida för Managementprogrammet. Tillfälligt projekt under utveckling.
@@ -77,8 +86,8 @@ Eller via GitHub:
 
 ## Collaborators
 
-GitHub-repot ska delas med:
-- [ ] Jonas (användarnamn: TBD)
+GitHub-repot delas med:
+- [x] carma1337 (inbjudan skickad, väntar på acceptans)
 
 ---
 
@@ -92,9 +101,11 @@ GitHub-repot ska delas med:
 
 ## TODO
 
-- [ ] Lägg till Jonas som collaborator på GitHub
-- [ ] Jonas bygger hemsidan i Lovable
-- [ ] Deploya färdig hemsida
+- [x] Lägg till carma1337 som collaborator på GitHub
+- [ ] carma1337 accepterar inbjudan
+- [ ] carma1337 kopplar Lovable till repot
+- [ ] carma1337 bygger hemsidan i Lovable
+- [ ] Kör `git pull` på servern för att deploya
 
 ---
 
@@ -108,4 +119,4 @@ cd /home/albin/managementprogrammet
 
 ---
 
-**Senast uppdaterad:** 2026-01-30
+**Senast uppdaterad:** 2026-02-02
