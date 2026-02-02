@@ -109,6 +109,7 @@ Eller via GitHub:
 
 GitHub-repot delas med:
 - [x] carma1337 (inbjudan skickad, väntar på acceptans)
+- [x] isakmolsson (inbjudan skickad, väntar på acceptans)
 
 ---
 
