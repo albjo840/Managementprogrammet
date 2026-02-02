@@ -1,5 +1,32 @@
 # Managementprogrammet - Teknisk Dokumentation
 
+## WEBHOOK AUTO-DEPLOY (ENGÅNGSSETUP)
+
+För att sidan ska uppdateras automatiskt när carma1337 pushar från Lovable:
+
+### Steg 1: Starta webhook-tjänsten (på servern)
+```bash
+cd /home/albin/managementprogrammet
+git pull origin main
+docker compose down
+docker compose up -d --build
+```
+
+### Steg 2: Lägg till webhook på GitHub
+1. Gå till: https://github.com/albjo840/Managementprogrammet/settings/hooks
+2. Klicka "Add webhook"
+3. Fyll i:
+   - **Payload URL:** `http://managementprogrammet.duckdns.org:9000/webhook`
+   - **Content type:** `application/json`
+   - **Secret:** `managementprogrammet2026`
+   - **Events:** Just the push event
+4. Klicka "Add webhook"
+
+### Klart!
+Nu körs `git pull` automatiskt varje gång någon pushar till GitHub.
+
+---
+
 ## Projektöversikt
 
 Hemsida för Managementprogrammet. Tillfälligt projekt under utveckling.
@@ -33,6 +60,9 @@ managementprogrammet/
 ├── deploy.sh             # Auto-deploy script (cron)
 ├── public/
 │   └── index.html        # Hemsidan
+├── webhook/
+│   ├── Dockerfile        # Webhook-container
+│   └── server.py         # Auto-pull vid push
 └── CLAUDE.md             # Detta dokument
 ```
 
@@ -90,7 +120,8 @@ cat /home/albin/managementprogrammet/deploy.log
 ## Collaborators
 
 GitHub-repot delas med:
-- [x] Jonas (@carma1337) - inbjuden
+- [x] carma1337 (inbjudan skickad, väntar på acceptans)
+- [x] isakmolsson (inbjudan skickad, väntar på acceptans)
 
 ---
 
@@ -104,9 +135,13 @@ GitHub-repot delas med:
 
 ## TODO
 
-- [x] Lägg till Jonas som collaborator på GitHub
-- [ ] Jonas bygger hemsidan i Lovable
-- [ ] Deploya färdig hemsida
+- [x] Lägg till carma1337 som collaborator på GitHub
+- [ ] carma1337 accepterar inbjudan
+- [ ] Sätt upp webhook (se instruktioner ovan)
+- [ ] Lägg till webhook på GitHub
+- [ ] carma1337 kopplar Lovable till repot
+- [ ] carma1337 bygger hemsidan i Lovable
+- [ ] Sidan uppdateras automatiskt via webhook!
 
 ---
 
@@ -120,4 +155,4 @@ cd /home/albin/managementprogrammet
 
 ---
 
-**Senast uppdaterad:** 2026-01-30
+**Senast uppdaterad:** 2026-02-02

@@ -7,3 +7,14 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+  webhook:
+    build: ./webhook
+    container_name: managementprogrammet-webhook
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/repo
+    environment:
+      - WEBHOOK_SECRET=managementprogrammet2026
+    restart: unless-stopped
