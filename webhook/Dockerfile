@@ -1,10 +1,9 @@
-FROM python:3.11-slim
+FROM python:3.11-alpine
 
 WORKDIR /app
 
 RUN pip install flask && \
-    apt-get update && apt-get install -y git && \
-    rm -rf /var/lib/apt/lists/*
+    apk add --no-cache git
 
 COPY server.py .
 
